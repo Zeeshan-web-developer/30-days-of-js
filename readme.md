@@ -78,6 +78,3 @@ Feel free to fork the repository, submit issues, or create pull requests if you 
 
 Join me on this journey to enhance JavaScript mastery! 🎉
 
----
-
-This README provides an overview of the challenge and invites others to learn from your journey. Let me know if you'd like any adjustments!
