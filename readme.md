@@ -1,4 +1,3 @@
-Here’s a sample README file for your "30 Days of JS" project:
 
 https://leetcode.com/problems/execute-asynchronous-functions-in-parallel/?envType=study-plan-v2&envId=30-days-of-javascript
 
