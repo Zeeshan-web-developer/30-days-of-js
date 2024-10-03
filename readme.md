@@ -1,5 +1,7 @@
 Here’s a sample README file for your "30 Days of JS" project:
 
+https://leetcode.com/problems/execute-asynchronous-functions-in-parallel/?envType=study-plan-v2&envId=30-days-of-javascript
+
 ---
 
 # 30 Days of JS
@@ -53,7 +55,7 @@ Each day will have its own folder, named by the day number (e.g., `day-01`, `day
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/30-days-of-js.git
+   https://github.com/Zeeshan-web-developer/30-days-of-js.git
    ```
 2. Navigate to the specific day's folder and run the JavaScript file using Node.js or your browser's console.
 
