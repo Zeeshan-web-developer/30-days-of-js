@@ -1,7 +1,9 @@
 
 //Promise.allSettled polyfill
 
-
+//Promise.allSettled method returns a promise that resolves after all of the given promises 
+//have either resolved or rejected, with an array of objects that each describes the outcome 
+//of each promise.
 Promise.myAllSettled = function (promisesArray) { 
     return new Promise((resolve, reject) => {
         let results = [];
