@@ -1,4 +1,3 @@
-
 /**
  * -----Operations----
  * 1:Add at Start
@@ -15,80 +14,102 @@
  * 12: Merging two linked List
  */
 
-
-
 // structure of node
-class Node{
-    constructor(data) {
-        this.data=data
-        this.next=null
-    }
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
 }
 
+class SingleLinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
 
-class SingleLinkedList{
-    
-    constructor() {
-        this.head = null;
-        this.tail=null
+  add_at_first_location(data) {
+    //first check if there is list already created
+    const New_node = new Node(data);
+
+    if (this?.head) {
+      New_node.next = this.head;
+      this.head = New_node;
+    } else {
+      this.head = New_node;
+    }
+    this.size++;
+  }
+  add_at_last_location(data) {
+    //first check if there is list already created
+    const New_node = new Node(data);
+
+    if (this?.head) {
+      let current = this.head;
+      while (current?.next) {
+        current = current.next;
+      }
+      current.next = New_node;
+    } else {
+      this.head = New_node;
+    }
+    this.size++;
+  }
+  add_at_specific_location(data, index) {
+    //first check if there is list already created
+    if (index < 0 || index > this.size) {
+      console.log("Inavlid index");
+      return;
     }
 
-
-    add_at_first_location(data) {
-        //first check if there is list already created
-        const New_node = new Node(data)
-
-        if (this?.head) {
-            New_node.next=this.head
-            this.head = New_node;
-            
-        } else {
-            this.head =New_node
-            New_node.next=null
-
-            
-        }  
+    if (index == 0) {
+      this.add_at_first_location(data);
+      return;
     }
-    add_at_last_location(data) {
-        //first check if there is list already created
-        const New_node = new Node(data)
+    const New_node = new Node(data);
 
-        if (this?.head) {
-            let current = this.head
-            while (current?.next !== null) {
-                current=current.next
-            }
-            current.next = New_node;
-            New_node.next=null
-            
-            
-        } else {
-            this.head =New_node
-            New_node.next=null
-
-            
-        }  
+    let current = this.head;
+    let count = 0;
+    let previous;
+    while (count < index) {
+      previous = current;
+      current = current.next;
+      count++;
     }
+    New_node.next = current;
+    previous.next = New_node;
 
-    traverse_from_start_to_end() {
-        let current = this.head;
-        while (current !== null) {
-            console.log(current.data)
-            current=current.next
-        }
+    this.size++;
+  }
+
+  traverse_from_start_to_end() {
+    let current = this.head;
+    while (current !== null) {
+      console.log(current.data);
+      current = current.next;
     }
+  }
 }
-
 
 const List = new SingleLinkedList();
 
-List.add_at_first_location(100);
-List.add_at_first_location(101);
-List.add_at_first_location(102);
-List.add_at_first_location(103);
+// List.add_at_first_location(100);
+// List.add_at_first_location(101);
+// List.add_at_first_location(102);
+// List.add_at_first_location(103);
 
-List.add_at_last_location("last node");
-List.add_at_first_location("first node");
-List.add_at_last_location("last node2");
+List.add_at_last_location(100);
+List.add_at_last_location(101);
 
-List.traverse_from_start_to_end()
+List.add_at_last_location(102);
+
+List.add_at_last_location(103);
+List.add_at_last_location(104);
+
+List.add_at_last_location(105);
+List.add_at_last_location(106);
+
+// List.add_at_first_location("first node");
+List.add_at_specific_location("kuch bhi", 3);
+
+List.traverse_from_start_to_end();
