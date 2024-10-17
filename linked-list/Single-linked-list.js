@@ -143,6 +143,29 @@ class SingleLinkedList {
     this.size--;
   }
 
+  print_in_reverse_order() {
+    // let arr = [];
+    // let current = this.head;
+    // while (current !== null) {
+    //   arr.unshift(current);
+    //   current = current.next;
+    // }
+    // console.log(arr);
+    let previous = null;
+    let current = this.head;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+    this.head = previous;
+    console.log("------After reverse------");
+    this.traverse_from_start_to_end();
+  }
+
   traverse_from_start_to_end() {
     let current = this.head;
 
@@ -181,3 +204,4 @@ List.traverse_from_start_to_end();
 // List.delete_at_last();
 List.delete_at_specific_location(3);
 List.traverse_from_start_to_end();
+List.print_in_reverse_order();
