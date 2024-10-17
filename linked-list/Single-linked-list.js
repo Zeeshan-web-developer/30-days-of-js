@@ -114,6 +114,35 @@ class SingleLinkedList {
     this.size--;
   }
 
+  delete_at_specific_location(index) {
+    console.log("-------deleting last index--------");
+    //first check if there is list already created
+    if (index < 0 || index > this.size) {
+      console.log("Inavlid index");
+      return;
+    }
+
+    if (index == 0) {
+      this.delete_at_start();
+      return;
+    }
+    // const New_node = new Node(data);
+
+    let current = this.head;
+    let count = 0;
+    let previous;
+    while (count < index) {
+      previous = current;
+      current = current.next;
+      count++;
+    }
+    // New_node.next = current;
+    // previous.next = New_node;
+    previous.next = current.next;
+
+    this.size--;
+  }
+
   traverse_from_start_to_end() {
     let current = this.head;
 
@@ -149,5 +178,6 @@ List.traverse_from_start_to_end();
 
 // List.delete_at_start();
 // List.traverse_from_start_to_end();
-List.delete_at_last();
+// List.delete_at_last();
+List.delete_at_specific_location(3);
 List.traverse_from_start_to_end();
