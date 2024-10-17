@@ -82,8 +82,41 @@ class SingleLinkedList {
     this.size++;
   }
 
+  delete_at_start() {
+    console.log("delteting---------------------");
+
+    if (this.size <= 0) {
+      console.log("List is empty");
+      return;
+    }
+    this.head = this.head.next;
+    this.size--;
+  }
+  delete_at_last() {
+    //if list is empty
+    if (!this.head) {
+      console.log("List is empty");
+      return;
+    }
+    //if there is only one node
+    if (this.head.next === null) {
+      this.head = null;
+    } else {
+      let current = this.head;
+      let previous = null;
+      while (current.next !== null) {
+        previous = current;
+        current = current.next;
+      }
+      console.log({ current, previous });
+      previous.next = null;
+    }
+    this.size--;
+  }
+
   traverse_from_start_to_end() {
     let current = this.head;
+
     while (current !== null) {
       console.log(current.data);
       current = current.next;
@@ -110,6 +143,11 @@ List.add_at_last_location(105);
 List.add_at_last_location(106);
 
 // List.add_at_first_location("first node");
-List.add_at_specific_location("kuch bhi", 3);
+// List.add_at_specific_location("kuch bhi", 3);
 
+List.traverse_from_start_to_end();
+
+// List.delete_at_start();
+// List.traverse_from_start_to_end();
+List.delete_at_last();
 List.traverse_from_start_to_end();
