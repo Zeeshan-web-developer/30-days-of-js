@@ -142,15 +142,19 @@ class SingleLinkedList {
 
     this.size--;
   }
+  search_data(data) {
+    let current = this.head;
+    while (current) {
+      if (data === current.data) {
+        console.log("found", current.data, data);
+        return true;
+      }
+      current = current.next;
+    }
+    console.log("not found", current, data);
+  }
 
   print_in_reverse_order() {
-    // let arr = [];
-    // let current = this.head;
-    // while (current !== null) {
-    //   arr.unshift(current);
-    //   current = current.next;
-    // }
-    // console.log(arr);
     let previous = null;
     let current = this.head;
     let next = null;
@@ -193,15 +197,16 @@ List.add_at_last_location(104);
 
 List.add_at_last_location(105);
 List.add_at_last_location(106);
+List.search_data(100);
 
 // List.add_at_first_location("first node");
 // List.add_at_specific_location("kuch bhi", 3);
 
-List.traverse_from_start_to_end();
-
-// List.delete_at_start();
 // List.traverse_from_start_to_end();
-// List.delete_at_last();
-List.delete_at_specific_location(3);
-List.traverse_from_start_to_end();
-List.print_in_reverse_order();
+
+// // List.delete_at_start();
+// // List.traverse_from_start_to_end();
+// // List.delete_at_last();
+// List.delete_at_specific_location(3);
+// List.traverse_from_start_to_end();
+// List.print_in_reverse_order();
