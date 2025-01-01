@@ -14,7 +14,7 @@
  * 12: Merging two linked List
  */
 
-// structure of node
+// this is just for each node
 class Node {
   constructor(data) {
     this.data = data;
@@ -23,6 +23,7 @@ class Node {
 }
 
 class SingleLinkedList {
+  //this is just for for a whole list
   constructor() {
     this.head = null;
     this.size = 0;
@@ -174,39 +175,68 @@ class SingleLinkedList {
     let current = this.head;
 
     while (current !== null) {
-      console.log(current.data);
       current = current.next;
     }
   }
 }
+function merge_two_lists(list1, list2) {
+  let mergedArray = [];
+  let c1 = list1.head;
+  while (c1 !== null) {
+    mergedArray.push(c1.data);
+    c1 = c1.next;
+  }
+  let c2 = list2.head;
+  while (c2 !== null) {
+    mergedArray.push(c2.data);
+    c2 = c2.next;
+  }
+  let sorted = mergedArray.sort((a, b) => a - b);
+  return sorted;
+}
 
-const List = new SingleLinkedList();
+const List1 = new SingleLinkedList();
+List1.add_at_first_location(101);
+List1.add_at_first_location(100);
+List1.add_at_first_location(103);
+List1.add_at_first_location(102);
 
 // List.add_at_first_location(100);
 // List.add_at_first_location(101);
 // List.add_at_first_location(102);
 // List.add_at_first_location(103);
 
-List.add_at_last_location(100);
-List.add_at_last_location(101);
+// List.add_at_last_location(100);
+// List.add_at_last_location(101);
 
-List.add_at_last_location(102);
+// List.add_at_last_location(102);
 
-List.add_at_last_location(103);
-List.add_at_last_location(104);
+// List.add_at_last_location(103);
+// List.add_at_last_location(104);
 
-List.add_at_last_location(105);
-List.add_at_last_location(106);
-List.search_data(100);
+// List.add_at_last_location(105);
+// List.add_at_last_location(106);
+// List.search_data(100);
 
 // List.add_at_first_location("first node");
 // List.add_at_specific_location("kuch bhi", 3);
 
-// List.traverse_from_start_to_end();
+List1.traverse_from_start_to_end();
 
-// // List.delete_at_start();
-// // List.traverse_from_start_to_end();
-// // List.delete_at_last();
+// List.delete_at_start();
+// List.traverse_from_start_to_end();
+// List.delete_at_last();
 // List.delete_at_specific_location(3);
 // List.traverse_from_start_to_end();
 // List.print_in_reverse_order();
+
+console.log("-----------------------------------");
+const List2 = new SingleLinkedList();
+List2.add_at_first_location(200);
+List2.add_at_first_location(201);
+List2.add_at_first_location(202);
+List2.add_at_first_location(203);
+List2.traverse_from_start_to_end();
+console.log("-----------------------------------");
+
+console.log(merge_two_lists(List1, List2));
